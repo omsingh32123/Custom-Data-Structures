@@ -1,0 +1,98 @@
+# Introduction
+
+The `AdvancedList` data structure is a custom implementation designed to provide efficient dynamic resizing and element manipulation capabilities by utilizing a `HashMap` internally. It serves as an alternative to the traditional `ArrayList` in Java, offering improved performance, particularly for scenarios involving frequent insertions, deletions, and element lookups. The underlying use of a `HashMap` enables constant-time complexity (O(1)) for most operations, making `AdvancedList` suitable for applications that require high-performance list operations.
+
+# Installation
+
+To use the `AdvancedList` data structure in your Java project, simply include the provided `AdvancedList.java` file in your project's source directory. There are no additional dependencies required. Ensure that the `HashMap` class from the `java.util` package is accessible in your project, as it's used internally by `AdvancedList`.
+
+# Usage
+
+The `AdvancedList` class provides methods for adding, removing, retrieving, and manipulating elements within the list. To use `AdvancedList`:
+- Instantiate a new `AdvancedList` object using the default constructor or initialize it with an array of elements.
+- Use methods like `add`, `remove`, `get`, `set`, `contains`, `indexOf`, `clear`, and others to interact with the list.
+- Ensure to handle exceptions such as `IndexOutOfBoundsException` when performing index-based operations.
+
+# Performance Considerations
+
+The use of a `HashMap` internally in `AdvancedList` offers several performance benefits:
+- 'Constant-Time Complexity': Insertion, deletion, and lookup operations typically have O(1) time complexity under normal usage scenarios due to the efficient hashing mechanism of `HashMap`.
+- 'Dynamic Resizing': `AdvancedList` can dynamically resize to accommodate elements without requiring manual resizing, unlike fixed-size arrays.
+- 'Efficient Memory Management': `HashMap` manages memory efficiently by allocating space dynamically based on the number of elements, which can result in reduced memory overhead compared to fixed-size arrays.
+
+# Operations Performance
+
+> `AdvancedList()`
+- 'Time Complexity': O(1) for initializing the `HashMap` and setting the initial size.
+- 'Space Complexity': O(1) for storing the `HashMap` and `size` variable.
+
+> `AdvancedList(int[] array)`
+- 'Time Complexity': O(n) where n is the number of elements in the input array. This is due to iterating over the array to populate the `HashMap`.
+- 'Space Complexity': O(n) to store the `HashMap` with `n` elements and the `size` variable.
+
+> `AdvancedList(AdvancedList advancedList)`
+- 'Time Complexity': O(n) where n is the size of the input `AdvancedList`. This is due to copying the elements from the `HashMap` of the input `AdvancedList` to a new `HashMap`.
+- 'Space Complexity': O(n) to store the `HashMap` with `n` elements and the `size` variable.
+
+> `size()`
+- 'Time Complexity': O(1) as it simply returns the `size` variable.
+- 'Space Complexity': O(1) for storing the return value.
+
+> `add(int data)`
+- 'Time Complexity': O(1) on average for inserting an element into the `HashMap`.
+- 'Space Complexity': O(1) for storing the new element.
+
+> `addAll(int[] array)`
+- 'Time Complexity': O(m) where m is the number of elements in the input array. This is due to iterating over the array and adding elements to the `HashMap`.
+- 'Space Complexity': O(m) for storing `m` additional elements.
+
+> `remove(int index)`
+- 'Time Complexity': O(n) where n is the number of elements to shift (size - index - 1). This is due to shifting elements in the `HashMap` after removal.
+- 'Space Complexity': O(1) for modifying existing elements.
+
+> `removeElement(int data)`
+- 'Time Complexity': O(n) where n is the size of the list. This is because it may need to iterate through all elements to find and remove matching elements.
+- 'Space Complexity': O(1) for modifying existing elements.
+
+> `removeAllElement(int[] array)`
+- 'Time Complexity': O(n * m) where n is the size of the list and m is the number of elements in the input array. This is because for each element in the input array, it may iterate through the list to remove matching elements.
+- 'Space Complexity': O(1) for modifying existing elements.
+
+> `get(int index)`
+- 'Time Complexity': O(1) on average for retrieving an element from the `HashMap`.
+- 'Space Complexity': O(1) for storing the retrieved element.
+
+> `set(int index, int data)`
+- 'Time Complexity': O(1) on average for updating an element in the `HashMap`.
+- 'Space Complexity': O(1) for modifying existing elements.
+
+> `contains(int data)`
+- 'Time Complexity': O(n) in worst case where n is the size of the list. This is because it may need to iterate through all elements to check for the presence of the specified data.
+- 'Space Complexity': O(1) for storing temporary variables.
+
+> `indexOf(int data)`
+- 'Time Complexity': O(n) where n is the size of the list. This is because it may need to iterate through all elements to find the index of the specified data.
+- 'Space Complexity': O(1) for storing temporary variables.
+
+> `clear()`
+- 'Time Complexity': O(1) for clearing the `HashMap` and resetting the `size` variable.
+- 'Space Complexity': O(1) for modifying existing elements.
+
+> `clone()`
+- 'Time Complexity': O(n) where n is the size of the list. This is due to copying the elements from the `HashMap` to a new `HashMap`.
+- 'Space Complexity': O(n) for storing the copied `HashMap` and `size` variable.
+
+> `print()`
+- 'Time Complexity': O(n) where n is the size of the list. This is because it may need to iterate through all elements to print them.
+- 'Space Complexity': O(1) for temporary storage during printing.
+
+These complexities provide insights into the efficiency of each method in the `AdvancedList` data structure, considering both time and space requirements for typical operations. Note that actual performance may vary based on specific usage patterns and underlying implementation details.
+
+# Best Practices
+
+When using `AdvancedList`, consider the following best practices:
+- Handle index-based operations (`get`, `set`, `remove`) within valid bounds (0 <= index < size) to avoid `IndexOutOfBoundsException`.
+- Use the `contains` and `indexOf` methods to check for the presence and location of elements before performing operations.
+- Be mindful of memory usage, especially for large collections, as `HashMap` may consume more memory compared to primitive arrays or `ArrayList`.
+
+These guidelines will help optimize the performance and usability of the `AdvancedList` data structure within your Java applications. Adjust usage patterns and strategies based on specific application requirements and use cases.
