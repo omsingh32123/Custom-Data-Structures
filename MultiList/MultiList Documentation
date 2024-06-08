@@ -1,1 +1,76 @@
-# Currently working on a new Data Structure which is a combination of ArrayList & HashMap, we can call it an ArrayList, which can contain equal to or more than one values of different types, at each index. 
+# Introduction
+The `MultiList` data structure is a custom implementation designed to store and manage collections of elements of varying types at each index. This flexible structure uses a HashMap to map indices to arrays of Object, allowing the storage of heterogeneous data types within each array. The `MultiList` provides efficient methods for adding, updating, retrieving, and removing elements, making it suitable for applications that require dynamic and flexible data handling.
+
+# Installation
+To use the `MultiList` data structure in your Java project, include the provided MultiList.java file in your project's source directory. Ensure that the HashMap class from the java.util package is accessible in your project, as it's used internally by `MultiList`.
+
+# Usage
+The `MultiList` class provides methods for adding, removing, updating, retrieving, and printing elements within the list. To use `MultiList`:
+
+Instantiate a new `MultiList` object by specifying the size of each array.
+Use methods like `add`, `addAtIndex`, `updateAll`, `update`, `remove`, `getAll`, `get`, `print`, and `printAll` to interact with the list.
+Handle exceptions such as IndexOutOfBoundsException when performing index-based operations.
+
+# Performance Considerations
+The use of a HashMap internally in `MultiList` offers several performance benefits:
+
+Dynamic Resizing: `MultiList` can dynamically resize to accommodate elements without requiring manual resizing, unlike fixed-size arrays.
+Efficient Memory Management: HashMap manages memory efficiently by allocating space dynamically based on the number of elements, which can result in reduced memory overhead compared to fixed-size arrays.
+
+# Operations Performance
+MultiList(int n)
+Time Complexity: O(1) for initializing the HashMap and setting the initial array size and list size.
+Space Complexity: O(1) for storing the HashMap, arraySize, and size variables.
+
+add(Object... data)
+Time Complexity: O(1) on average for inserting an array of elements into the HashMap.
+Space Complexity: O(1) for storing the new array of elements.
+
+addAtIndex(int index, Object... data)
+Time Complexity: O(n) where n is the number of elements to shift (size - index). This is due to shifting elements in the HashMap after insertion.
+Space Complexity: O(1) for storing the new array of elements.
+
+updateAll(int index, Object... data)
+Time Complexity: O(1) on average for updating an array of elements in the HashMap.
+Space Complexity: O(1) for modifying existing elements.
+
+update(int index, int subindex, Object data)
+Time Complexity: O(1) on average for updating a specific element in an array in the HashMap.
+Space Complexity: O(1) for modifying existing elements.
+
+remove(int index)
+Time Complexity: O(n) where n is the number of elements to shift (size - index). This is due to shifting elements in the HashMap after removal.
+Space Complexity: O(1) for modifying existing elements.
+
+getAll(int index)
+Time Complexity: O(1) on average for retrieving an array of elements from the HashMap.
+Space Complexity: O(1) for storing the retrieved array.
+
+get(int index, int subindex)
+Time Complexity: O(1) on average for retrieving a specific element from an array in the HashMap.
+Space Complexity: O(1) for storing the retrieved element.
+
+print(int index)
+Time Complexity: O(m) where m is the number of elements in the array at the specified index. This is because it needs to iterate through the array to print elements.
+Space Complexity: O(1) for temporary storage during printing.
+
+printAll()
+Time Complexity: O(n * m) where n is the number of arrays in the `MultiList` and m is the number of elements in each array. This is because it needs to iterate through all arrays and their elements to print them.
+Space Complexity: O(1) for temporary storage during printing.
+
+size()
+Time Complexity: O(1) as it simply returns the size variable.
+Space Complexity: O(1) for storing the return value.
+
+These complexities provide insights into the efficiency of each method in the `MultiList` data structure, considering both time and space requirements for typical operations. Note that actual performance may vary based on specific usage patterns and underlying implementation details.
+
+# Best Practices
+When using `MultiList`, consider the following best practices:
+
+Handle index-based operations (get, set, remove) within valid bounds (0 <= index < size) to avoid IndexOutOfBoundsException.
+
+Use the add, addAtIndex, updateAll, and update methods to ensure arrays have the correct size (arraySize) before performing operations.
+
+Be mindful of memory usage, especially for large collections, as HashMap may consume more memory compared to primitive arrays or ArrayList.
+
+These guidelines will help optimize the performance and usability of the `MultiList` data structure within your Java applications. Adjust usage patterns and strategies based on specific application requirements and use cases.
